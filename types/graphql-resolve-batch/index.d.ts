@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.6
 
-import { GraphQLResolveInfo } from 'graphql';
+import { GraphQLResolveInfo } from "graphql";
 
 /**
  * Creates a GraphQL.js field resolver that batches together multiple resolves
@@ -45,7 +45,7 @@ export type ResolverFunction<TSource, TArgs, TContext, TReturn> = (
  * A batch function to resolve all fields for the given sources in a single batch.
  */
 export type BatchResolveFunction<TSource, TArgs, TContext, TReturn> = (
-    sources: ReadonlyArray<TSource>,
+    sources: TSource[],
     args: TArgs,
     context: TContext,
     info: GraphQLResolveInfo

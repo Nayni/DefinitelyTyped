@@ -57,7 +57,7 @@ const withSourceAndResultTyped = createBatchResolver<
     SomeTestSource,
     SomeTestResult
 >((sources, _, __) => {
-    // $ExpectType ReadonlyArray<SomeTestSource>
+    // $ExpectType SomeTestSource[]
     const verifySources = sources;
 
     return batchFunction(sources);
@@ -68,7 +68,7 @@ const withSourceAndResultTypedAsPromise = createBatchResolver<
     SomeTestSource,
     SomeTestResult
 >(async (sources, _, __) => {
-    // $ExpectType ReadonlyArray<SomeTestSource>
+    // $ExpectType SomeTestSource[]
     const verifySources = sources;
     const result = await asyncBatchFunction(sources);
     return result;
@@ -80,7 +80,7 @@ const withSourceAndArgsAndResultTyped = createBatchResolver<
     SomeTestResult,
     SomeTestArgs
 >(async (sources, args, _) => {
-    // $ExpectType ReadonlyArray<SomeTestSource>
+    // $ExpectType SomeTestSource[]
     const verifySources = sources;
     // $ExpectType string
     const verifyArgs = args.someArg;
@@ -96,7 +96,7 @@ const withSourceAndArgsAndContextTyped = createBatchResolver<
     SomeTestArgs,
     SomeTestContext
 >(async (sources, args, context, info) => {
-    // $ExpectType ReadonlyArray<SomeTestSource>
+    // $ExpectType SomeTestSource[]
     const verifySources = sources;
     // $ExpectType string
     const verifyArgs = args.someArg;
@@ -112,7 +112,7 @@ const withSourceAndArgsAndContextTyped = createBatchResolver<
 // $ExpectType ResolverFunction<SomeTestSource, any, any, SomeTestResult[]>
 const withResultIsArray = createBatchResolver<SomeTestSource, SomeTestResult[]>(
     (sources, _, __) => {
-        // $ExpectType ReadonlyArray<SomeTestSource>
+        // $ExpectType SomeTestSource[]
         const verifySources = sources;
 
         return asyncBatchFunctionWhenTReturnIsArray(sources);
